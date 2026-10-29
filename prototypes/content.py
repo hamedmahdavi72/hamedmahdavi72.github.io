@@ -6,11 +6,12 @@ EMAIL = "hmm5834@psu.edu"
 AFFIL = "Pennsylvania State University, State College, PA"
 CV = "CV.pdf"
 
+# (label, url, lettermark, secondary line)
 LINKS = [
-    ("Google Scholar", "https://scholar.google.com/citations?user=Ld-BcToAAAAJ"),
-    ("GitHub", "https://github.com/hamedmahdavi72"),
-    ("LinkedIn", "https://www.linkedin.com/in/hamed-mahdavi-a95480103/"),
-    ("Twitter", "https://twitter.com/hamedmahdavi93"),
+    ("Google Scholar", "https://scholar.google.com/citations?user=Ld-BcToAAAAJ", "GS", "publications and citations"),
+    ("GitHub", "https://github.com/hamedmahdavi72", "GH", "@hamedmahdavi72"),
+    ("LinkedIn", "https://www.linkedin.com/in/hamed-mahdavi-a95480103/", "in", "hamed-mahdavi"),
+    ("Twitter", "https://twitter.com/hamedmahdavi93", "X", "@hamedmahdavi93"),
 ]
 
 BIO = [

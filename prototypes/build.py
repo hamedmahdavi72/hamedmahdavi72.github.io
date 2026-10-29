@@ -43,7 +43,7 @@ TOGGLE = '<button type="button" class="toggle" data-toggle-theme aria-label="Swi
 GUTTER = "padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));"
 
 def links_html(cls="links", with_cv=True, with_email=True):
-    items = [f'<a href="{u}">{l}</a>' for l, u in LINKS]
+    items = [f'<a href="{u}">{l}</a>' for l, u, *_ in LINKS]
     if with_cv: items.insert(0, f'<a href="{CV}">CV</a>')
     if with_email: items.append(f'<a href="mailto:{EMAIL}">{EMAIL}</a>')
     return f'<nav class="{cls}">' + "".join(items) + "</nav>"
@@ -74,6 +74,72 @@ def bibtex(i, t, a, v, y, links):
         kind, venue = "inproceedings", f"  booktitle = {{{v}}},\n"
     return f"@{kind}{{{key},\n  title = {{{t}}},\n  author = {{{authors}}},\n{venue}  year = {{{y}}},\n  url = {{{url}}}\n}}"
 
+PIXEL = {
+ "medal": """
+....####....
+...#....#...
+...#.##.#...
+...#....#...
+....####....
+..xxx..xxx..
+..xxxxxxxx..
+..xx.xx.xx..
+..xxxxxxxx..
+...xxxxxx...
+....xxxx....
+.....xx.....""",
+ "trophy": """
+.##########.
+.#........#.
+x#........#x
+x#........#x
+.#........#.
+..#......#..
+...######...
+.....##.....
+.....##.....
+....####....
+..########..
+..########..""",
+ "coins": """
+............
+..########..
+.#........#.
+.#.xxxxxx.#.
+..########..
+..########..
+.#........#.
+.#.xxxxxx.#.
+..########..
+..########..
+.#........#.
+..########..""",
+ "star": """
+.....##.....
+.....##.....
+....####....
+....####....
+############
+.##########.
+..########..
+...######...
+...##..##...
+..##....##..
+.#........#.
+............""",
+}
+def pix(name, size=22):
+    rows = PIXEL[name].strip("\n").split("\n")
+    d = {"#": [], "x": []}
+    for y, row in enumerate(rows):
+        for x, ch in enumerate(row):
+            if ch in d: d[ch].append(f"M{x} {y}h1v1h-1z")
+    paths = (f'<path fill="var(--accent)" d="{"".join(d["#"])}"/>' if d["#"] else "") + (f'<path fill="var(--muted)" d="{"".join(d["x"])}"/>' if d["x"] else "")
+    return f'<svg class="pix" viewBox="0 0 12 12" width="{size}" height="{size}" shape-rendering="crispEdges" aria-hidden="true">{paths}</svg>'
+
+with open(os.path.join(HERE, "..", "dist", "assets", "img", "profile-pixel.png"), "rb") as _f:
+    PIXEL_PORTRAIT = "data:image/png;base64," + base64.b64encode(_f.read()).decode()
+
 def variant_b(img):
     css = f'''
 /* Layout: sticky slate identity column (amber on slate, like an amber phosphor terminal) beside a graph-paper content column. */
@@ -101,11 +167,31 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(
 @keyframes pulse{{0%{{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent-on-slate) 60%,transparent)}}100%{{box-shadow:0 0 0 .6rem transparent}}}}
 .side p{{font-size:.97rem;color:var(--slate-fg);opacity:.9}}
 .side a{{color:var(--accent-on-slate)}}
-.pills{{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0 1rem}}
-.pills a{{font-size:.85rem;padding:.35rem .8rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:var(--slate-fg);text-decoration:none}}
-.pills a:hover{{border-color:var(--accent-on-slate);color:var(--accent-on-slate)}}
-.pills a.cv{{background:var(--accent-on-slate);color:var(--slate);border-color:var(--accent-on-slate);font-weight:600}}
-.email{{font-family:var(--mono);font-size:.82rem;color:var(--slate-muted);word-break:break-all}}
+.cvbtn{{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:1.4rem 0 .9rem;padding:.7rem .9rem;border-radius:10px;background:var(--accent-on-slate);color:var(--slate);text-decoration:none;font-weight:600}}
+.cvbtn:hover{{text-decoration:none;filter:brightness(1.07)}}
+.cvbtn .m{{font-family:var(--mono);font-size:.72rem;font-weight:500;opacity:.8}}
+.cvbtn .arr{{font-family:var(--mono);font-size:1rem}}
+.linklist{{display:grid;gap:.25rem;margin:0 0 1.2rem}}
+.linklist a{{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--slate-fg);text-decoration:none;border:1px solid transparent}}
+.linklist a:hover,.linklist a:focus-visible{{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04)}}
+.linklist .mark{{width:2rem;height:2rem;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:.74rem;font-weight:600;background:rgba(255,255,255,.08);color:var(--slate-fg);border:1px solid rgba(255,255,255,.14)}}
+.linklist a:hover .mark{{background:var(--accent-on-slate);color:var(--slate);border-color:var(--accent-on-slate)}}
+.linklist .lbl{{min-width:0;line-height:1.2}}
+.linklist .lbl small{{display:block;font-family:var(--mono);font-size:.7rem;color:var(--slate-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.linklist .arr{{font-family:var(--mono);color:var(--slate-muted);opacity:0;transform:translateX(-4px);transition:opacity .15s,transform .15s}}
+.linklist a:hover .arr{{opacity:1;transform:none;color:var(--accent-on-slate)}}
+.hon{{display:grid;grid-template-columns:24px 1fr;gap:.75rem;align-items:start}}
+.hon .pix{{margin-top:.2rem}}
+/* phosphor goes 8-bit */
+:root.phosphor .side h1,:root.phosphor .hero h2,:root.phosphor h3.sec,:root.phosphor .card .t,:root.phosphor .job .r,:root.phosphor .toast{{font-family:"Silkscreen",var(--mono);letter-spacing:0}}
+:root.phosphor .side h1{{font-size:1.5rem;line-height:1.4}} :root.phosphor .hero h2{{font-size:1.25rem;line-height:1.6}} :root.phosphor h3.sec{{font-size:1rem}} :root.phosphor .card .t,:root.phosphor .job .r{{font-size:.8rem;line-height:1.7}}
+:root.phosphor .hero h2 em{{font-style:normal}}
+:root.phosphor .side img{{image-rendering:pixelated;border-radius:0;filter:none}}
+:root.phosphor .status .dot{{border-radius:0;animation:blink 1s steps(1,end) infinite;box-shadow:none}}
+@keyframes blink{{50%{{opacity:0}}}}
+:root.phosphor .card,:root.phosphor .pal .box,:root.phosphor .cvbtn,:root.phosphor .linklist .mark,:root.phosphor .badge,:root.phosphor .plinks a,:root.phosphor .copy{{border-radius:0}}
+:root.phosphor .card{{box-shadow:4px 4px 0 var(--rule)}}
+:root.phosphor .toast{{border-radius:0;font-size:.7rem;box-shadow:4px 4px 0 var(--accent-on-slate)}}
 .cmdk{{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;background:none;border:1px solid rgba(255,255,255,.18);color:var(--slate-muted);border-radius:8px;padding:.4rem .7rem;font-family:var(--mono);font-size:.78rem;cursor:pointer}}
 .cmdk:hover{{color:var(--slate-fg);border-color:var(--accent-on-slate)}}
 kbd{{font-family:var(--mono);font-size:.72rem;border:1px solid currentColor;border-radius:4px;padding:.05rem .35rem;opacity:.85}}
@@ -166,9 +252,10 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
 '''
     head = f'''<title>{NAME}</title>
 {meta(DESC)}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Figtree:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Figtree:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Silkscreen&display=swap"/>
 <style>{css}</style>'''
-    pills = f'<div class="pills"><a class="cv" href="{CV}">Download CV</a>' + "".join(f'<a href="{u}">{l}</a>' for l, u in LINKS) + "</div>"
+    pills = (f'<a class="cvbtn" href="{CV}"><span>Download CV <span class="m">· PDF, 2 pages</span></span><span class="arr">↓</span></a><nav class="linklist" aria-label="Profiles">' +
+             "".join(f'<a href="{u}"><span class="mark">{mk}</span><span class="lbl">{l}<small>{sub}</small></span><span class="arr">→</span></a>' for l, u, mk, sub in LINKS) + "</nav>")
     side = (f'<aside class="side">{TOGGLE}<img src="{img}" alt="Portrait of {NAME}"/>'
             f'<h1>Hamed<br/>Mahdavi</h1><p class="tag">{TAGLINE}</p>'
             f'<div class="status"><span class="dot"></span>Open to research scientist roles · late 2026</div>'
@@ -194,20 +281,20 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
     m.append('<section id="education"><div class="two"><div><div class="eyebrow">// education</div><h3 class="sec">Education</h3>' + "".join(
         f'<div class="item"><strong>{t}</strong><div class="s">{o} · {d}</div><div class="s">{n}</div></div>' for t, o, d, n in EDUCATION) +
         '</div><div id="honors"><div class="eyebrow">// honors</div><h3 class="sec">Honors</h3>' + "".join(
-        f'<div class="item"><strong>{t}</strong><div class="s">{d} · {n}</div></div>' for t, d, n in HONORS) + "</div></div></section>")
+        f'<div class="item hon">{pix(ic)}<div><strong>{t}</strong><div class="s">{d} · {n}</div></div></div>' for (t, d, n), ic in zip(HONORS, ("coins", "trophy", "star", "medal"))) + "</div></div></section>")
     m.append(sec("interests", "Interests", '<ul class="plain">' + "".join(f"<li>{i}</li>" for i in INTERESTS) + f"</ul><p>{OUTSIDE}</p>"))
     m.append(f'<footer><span>{NAME} · updated 2026-10</span><span>No framework. __KB__ KB of HTML and CSS.</span><a href="{REPO_URL}">Source on GitHub</a></footer></div></main>')
     # palette items
     items = [("Go to " + s, "#" + i, "section") for i, s in (("news","News"),("publications","Publications"),("experience","Experience"),("education","Education"),("honors","Honors"),("interests","Interests"))]
     items += [(t, next(iter(l.values())), "paper") for t, a, v, y, l, _ in PUBS]
-    items += [("Download CV", CV, "file")] + [(l, u, "link") for l, u in LINKS] + [("Copy email address", "copy:" + EMAIL, "action")]
+    items += [("Download CV", CV, "file")] + [(l, u, "link") for l, u, *_ in LINKS] + [("Copy email address", "copy:" + EMAIL, "action")]
     pal_items = "".join(f'<li data-url="{html.escape(u, quote=True)}"><span>{html.escape(t)}</span><span class="k">{k}</span></li>' for t, u, k in items)
     palette = (f'<div class="pal" id="pal" hidden role="dialog" aria-modal="true" aria-label="Search this page"><div class="box">'
                f'<input id="pal-q" type="text" placeholder="Jump to a section, open a paper, copy email…" autocomplete="off"/>'
                f'<ul id="pal-list">{pal_items}</ul><div class="hint">↑↓ navigate · ↵ open · esc close</div></div></div>'
                f'<div class="toast" id="toast" hidden></div>')
     js = THEME_JS + '''<script>
-(function(){
+(function(){var PIXEL_PORTRAIT="''' + PIXEL_PORTRAIT + '''";
 var toast=document.getElementById('toast'),tt;
 function say(m){toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toast.hidden=true},1800)}
 function copy(text,done){function ok(){done&&done();say('Copied')}
@@ -233,7 +320,8 @@ document.addEventListener('click',function(e){if(e.target.closest('[data-cmdk]')
 /* konami */
 var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],pos=0;
 document.addEventListener('keydown',function(e){var k=e.key.length===1?e.key.toLowerCase():e.key;pos=(k===seq[pos])?pos+1:(k===seq[0]?1:0);
- if(pos===seq.length){pos=0;var on=document.documentElement.classList.toggle('phosphor');say(on?'phosphor mode engaged. same code to exit.':'back to amber.')}});
+ if(pos===seq.length){pos=0;var on=document.documentElement.classList.toggle('phosphor');var im=document.querySelector('.side img');
+  if(on){im.setAttribute('data-src',im.src);im.src=PIXEL_PORTRAIT;say('ACHIEVEMENT UNLOCKED · phosphor mode')}else{im.src=im.getAttribute('data-src');say('back to amber.')}}});
 })();
 </script>'''
     body = f'<div class="page">{side}{"".join(m)}</div>{palette}{js}'
