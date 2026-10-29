@@ -33,6 +33,7 @@
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#honors">Honors</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
         </ul>
     </div>
@@ -52,9 +53,15 @@
 
             </div>
 
-            <p class="lead mb-5">I am Hamed Mahdavi, a computer science Ph.D. student at Pennsylvania State University.
-                For more information, you can check my <a
-                    href="CV.pdf">CV</a> here.</p>
+            <p class="lead mb-3">I am a Ph.D. candidate in Computer Science and Engineering at Pennsylvania State University,
+                advised by Prof. Vasant Honavar, graduating in November 2026. My research is on reasoning in large language
+                models: I build agentic workflows and evaluation harnesses that find where models fail, generate targeted
+                synthetic data to fix those failures, and feed it back through SFT, RL, and pretraining.</p>
+            <p class="lead mb-3">Most recently I was a Research Scientist Intern at <a href="https://preludelabs.ai">Prelude</a> in New York,
+                training reward models for creative judgment. Before that I collaborated with Google's Gemini Data team on the
+                <a href="https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/">Gemini IMO 2025</a>
+                project, and my work on LLMs for mathematics is supported by an unrestricted research gift from Google.</p>
+            <p class="lead mb-5">For more information, you can check my <a href="CV.pdf">CV</a>.</p>
             <div class="social-icons">
                 <a class="social-icon" href="https://www.linkedin.com/in/hamed-mahdavi-a95480103/"><i
                     class="fab fa-linkedin-in"></i></a>
@@ -71,6 +78,19 @@
             <h2 class="mb-5">Work Experience</h2>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
+                    <h3 class="mb-0">Research Scientist Intern</h3>
+                    <div class="subheading mb-3"><a href="https://preludelabs.ai">Prelude</a> - New York, NY</div>
+                    <ul>
+                        <li>Developed agentic workflows and evaluation harnesses for open-ended creative content generation, with a focus on generating synthetic reasoning data for creativity.</li>
+                        <li>Built pipelines that transform agentic workflows into training data, studying the interaction between mid-training and post-training for creative reasoning capabilities.</li>
+                        <li>Trained reasoning and non-reasoning reward models for creative judgment and led data curation for reward modeling in the creative judgment domain.</li>
+                    </ul>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">Mar 2026 - Aug 2026</span></div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
                     <h3 class="mb-0"><a href="https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/">Collaborator, Gemini IMO 2025 Project</a></h3>
                     <div class="subheading mb-3">Google</div>
                     <ul>
@@ -85,7 +105,7 @@
                     <h3 class="mb-0">Research Assistant</h3>
                     <div class="subheading mb-3">Pennsylvania State University - State College, PA</div>
                     <ul>
-                        <li>Designed agentic workflows for math problem solving and data generation; led evaluations of LLM mathematical reasoning; developed GNN models for interatomic potentials in materials science.</li>
+                        <li>Design agentic workflows for math problem solving and high-quality mathematical data generation; build and run evaluation harnesses for contest-level math (benchmarks, metrics, ablations, failure analysis).</li>
                     </ul>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">Jan 2022 - Present</span></div>
@@ -147,24 +167,29 @@
             <h2 class="mb-5">Selected Publications</h2>
             <ul>
                 <li>
+                    <strong>Splicing Hints into Reasoning Traces: Distillation Beyond What the Demonstrator Can Solve</strong><br/>
+                    H. Mahdavi, P. Mahdavinia, M. Farhadi, V. Honavar<br/>
+                    <em>Submitted to ICLR</em>, 2027 &middot; <a href="https://arxiv.org/abs/2610.13996">arXiv</a>
+                </li>
+                <li>
                     <strong>RefGrader: Automated Grading of Mathematical Competition Proofs using Agentic Workflows</strong><br/>
-                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, N. Mireshghallah, A Khasahmadi, V. Honavar<br/>
-                    <em>Draft</em>, 2025
+                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, N. Mireshghallah, A. Khasahmadi, V. Honavar<br/>
+                    <em>Math-AI Workshop at NeurIPS</em>, 2025 &middot; <a href="https://arxiv.org/abs/2510.09021">arXiv</a>
                 </li>
                 <li>
                     <strong>CombiGraph-Vis: A Multimodal Olympiad Benchmark for Discrete Mathematical Reasoning</strong><br/>
-                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, A Khasahmadi, V. Honavar<br/>
-                    <em>Draft</em>, 2025
+                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, A. Khasahmadi, V. Honavar<br/>
+                    <em>Math-AI Workshop at NeurIPS</em>, 2025 &middot; <a href="https://arxiv.org/abs/2510.27094">arXiv</a> &middot; <a href="https://huggingface.co/datasets/combviz/inoi">Dataset</a>
                 </li>
                 <li>
                     <strong>Harnessing Optimization Dynamics for Curvature-Informed Model Merging</strong><br/>
                     P. Mahdavinia, H. Mahdavi, N. Mireshghallah, M. Mahdavi<br/>
-                    <em>Draft</em>, 2025
+                    <em>Preprint</em>, 2025 &middot; <a href="https://arxiv.org/abs/2509.11167">arXiv</a>
                 </li>
                 <li>
-                    <strong>Brains vs. bytes: Evaluating LLM Proficiency In Olympiad Mathematics</strong><br/>
-                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, A Khasahmadi, V. Honavar<br/>
-                    <em>COLM Conference</em>, 2025
+                    <strong>Brains vs. Bytes: Evaluating LLM Proficiency in Olympiad Mathematics</strong><br/>
+                    H. Mahdavi, A. Hashemi, M. Daliri, P. Mohammadipour, A. Farhadi, S. Malek, Y. Yazdanifard, A. Khasahmadi, V. Honavar<br/>
+                    <em>COLM Conference</em>, 2025 &middot; <a href="https://arxiv.org/abs/2504.01995">arXiv</a>
                 </li>
                 <li>
                     <strong>Beyond Training Data: How Elemental Features Enhance ML-Based Formation Energy Predictions</strong><br/>
@@ -188,10 +213,11 @@
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Pennsylvania State University</h3>
-                    <div class="subheading mb-3">Ph.D. Student</div>
+                    <div class="subheading mb-3">Ph.D. Candidate</div>
                     <div>Computer Science and Engineering</div>
+                    <div>Advisor: Prof. Vasant Honavar &middot; Thesis: Solving Contest-Level Math Problems Using LLMs</div>
                 </div>
-                <div class="flex-shrink-0"><span class="text-primary">January 2022 - Present</span></div>
+                <div class="flex-shrink-0"><span class="text-primary">January 2022 - November 2026 (expected)</span></div>
             </div>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
@@ -205,7 +231,7 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Sharif University of Technology</h3>
                     <div class="subheading mb-3">Bachelor of Science</div>
-                    <div>Software Engineering</div>
+                    <div>Computer Engineering</div>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">September 2012 - August 2017</span></div>
             </div>
@@ -213,6 +239,41 @@
         </div>
     </section>
 
+    <hr class="m-0"/>
+    <!-- Honors-->
+    <section class="resume-section" id="honors">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Honors and Awards</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">$100k Unrestricted Research Gift from Google</h3>
+                    <div>Awarded to support research on enhancing large language models for mathematics through synthetic data generation and agentic workflows.</div>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">May 2025</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Top National Rankings in M.Sc. Entrance Exam</h3>
+                    <div>Placed 5th (AI), 2nd (Networks and Security), and 4th (IT) nationwide.</div>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">June 2017</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Ranked 217th in National University Entrance Exam</h3>
+                    <div>Top 0.1% among 260,000+ examinees nationwide.</div>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">June 2012</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Silver Medal, 29th National Mathematical Olympiad</h3>
+                    <div>Selected as one of 40 participants from 100,000+ candidates.</div>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">September 2011</span></div>
+            </div>
+        </div>
+    </section>
     <hr class="m-0"/>
      <!-- Interests-->
      <section class="resume-section" id="interests">
@@ -223,6 +284,7 @@
                 <li>LLMs for Math Problem Solving</li>
                 <li>AI Agents for Synthetic Data Generation</li>
                 <li>Reasoning in LLMs</li>
+                <li>Post-training, Reward Modeling, and LLM-as-a-Judge</li>
                 <li>Reinforcement Learning</li>
                 <li>Optimization in Machine Learning</li>
                 
