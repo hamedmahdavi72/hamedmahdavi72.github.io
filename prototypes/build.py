@@ -144,19 +144,19 @@ def variant_b(img):
     css = f'''
 /* Layout: sticky slate identity column (amber on slate, like an amber phosphor terminal) beside a graph-paper content column. */
 :root{{--paper:#f7f7f8;--ink:#16181d;--muted:#5d626c;--rule:#e3e4e8;--grid:rgba(22,24,29,.06);--slate:#0e1013;--slate-2:#15181d;--slate-fg:#e8e9ec;--slate-muted:#8b909a;--hair:rgba(255,255,255,.08);--tile:rgba(255,255,255,.05);
---accent:#9a6a12;--accent-on-slate:#e6ab3c;--card:#ffffff;--badge:#eef0f3;--overlay:rgba(14,16,19,.6);
+--accent:#9a6a12;--accent-on-slate:#e6ab3c;--card:#ffffff;--badge:#eef0f3;
 --display:"Fraunces",Georgia,serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}}
-@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--paper:#111318;--ink:#e8e9ec;--muted:#8b909a;--rule:#262a31;--grid:rgba(232,233,236,.045);--slate:#0a0b0e;--slate-2:#101217;--card:#171a20;--badge:#21252d;--accent:#e6ab3c;--overlay:rgba(0,0,0,.65);color-scheme:dark}}}}
-:root[data-theme="dark"]{{--paper:#111318;--ink:#e8e9ec;--muted:#8b909a;--rule:#262a31;--grid:rgba(232,233,236,.045);--slate:#0a0b0e;--slate-2:#101217;--card:#171a20;--badge:#21252d;--accent:#e6ab3c;--overlay:rgba(0,0,0,.65);color-scheme:dark}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--paper:#111318;--ink:#e8e9ec;--muted:#8b909a;--rule:#262a31;--grid:rgba(232,233,236,.045);--slate:#0a0b0e;--slate-2:#101217;--card:#171a20;--badge:#21252d;--accent:#e6ab3c;color-scheme:dark}}}}
+:root[data-theme="dark"]{{--paper:#111318;--ink:#e8e9ec;--muted:#8b909a;--rule:#262a31;--grid:rgba(232,233,236,.045);--slate:#0a0b0e;--slate-2:#101217;--card:#171a20;--badge:#21252d;--accent:#e6ab3c;color-scheme:dark}}
 /* Konami: green phosphor mode, wins over both themes */
-:root.phosphor,:root.phosphor[data-theme]{{--slate-2:#041004;--hair:rgba(157,255,157,.15);--tile:rgba(157,255,157,.06);--paper:#050c06;--ink:#9dff9d;--muted:#5fbf5f;--rule:#1d3a1d;--grid:rgba(157,255,157,.08);--slate:#020602;--slate-fg:#9dff9d;--slate-muted:#5fbf5f;--accent:#9dff9d;--accent-on-slate:#9dff9d;--card:#0a1a0a;--badge:#143014;--overlay:rgba(0,20,0,.7);color-scheme:dark}}
+:root.phosphor,:root.phosphor[data-theme]{{--slate-2:#041004;--hair:rgba(157,255,157,.15);--tile:rgba(157,255,157,.06);--paper:#050c06;--ink:#9dff9d;--muted:#5fbf5f;--rule:#1d3a1d;--grid:rgba(157,255,157,.08);--slate:#020602;--slate-fg:#9dff9d;--slate-muted:#5fbf5f;--accent:#9dff9d;--accent-on-slate:#9dff9d;--card:#0a1a0a;--badge:#143014;color-scheme:dark}}
 :root.phosphor body{{text-shadow:0 0 .6px currentColor}}
 :root.phosphor body::after{{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.55) 100%)}}
 :root.phosphor .side img{{filter:grayscale(1) sepia(1) hue-rotate(70deg) saturate(3) contrast(1.1)}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}}
 a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline}}
-a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
+a:focus-visible,button:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
 .page{{display:grid;grid-template-columns:minmax(300px,360px) 1fr;min-height:100vh}}
 .side{{background:linear-gradient(180deg,var(--slate),var(--slate-2));box-shadow:inset -1px 0 0 var(--hair);color:var(--slate-fg);position:sticky;isolation:isolate;top:0;height:100vh;overflow:auto;{GUTTER}padding-block:3rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px))}}
 .side::before{{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 45% at 15% 0%,color-mix(in srgb,var(--accent-on-slate) 16%,transparent),transparent 70%)}}
@@ -190,12 +190,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(
 :root.phosphor .side img{{image-rendering:pixelated;border-radius:0;filter:none}}
 :root.phosphor .status .dot{{border-radius:0;animation:blink 1s steps(1,end) infinite;box-shadow:none}}
 @keyframes blink{{50%{{opacity:0}}}}
-:root.phosphor .card,:root.phosphor .pal .box,:root.phosphor .side a.cvbtn,:root.phosphor .side a.cvbtn .arr,:root.phosphor .linklist .mark,:root.phosphor .badge,:root.phosphor .plinks a,:root.phosphor .copy{{border-radius:0}}
+:root.phosphor .card,:root.phosphor .side a.cvbtn,:root.phosphor .side a.cvbtn .arr,:root.phosphor .linklist .mark,:root.phosphor .badge,:root.phosphor .plinks a,:root.phosphor .copy{{border-radius:0}}
 :root.phosphor .card{{box-shadow:4px 4px 0 var(--rule)}}
 :root.phosphor .toast{{border-radius:0;font-size:.7rem;box-shadow:4px 4px 0 var(--accent-on-slate)}}
-.cmdk{{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;background:var(--tile);border:1px solid var(--hair);color:var(--slate-muted);border-radius:8px;padding:.4rem .7rem;font-family:var(--mono);font-size:.78rem;cursor:pointer}}
-.cmdk:hover{{color:var(--slate-fg);border-color:var(--accent-on-slate)}}
-kbd{{font-family:var(--mono);font-size:.72rem;border:1px solid currentColor;border-radius:4px;padding:.05rem .35rem;opacity:.85}}
 .toggle{{position:absolute;top:1rem;right:1rem;background:var(--tile);border:1px solid var(--hair);color:var(--slate-fg);border-radius:999px;width:2rem;height:2rem;cursor:pointer}}
 .main{{min-width:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;{GUTTER}padding-block:3.5rem 5rem;padding-left:max(3.5rem,env(safe-area-inset-left,0px));padding-right:max(3.5rem,env(safe-area-inset-right,0px))}}
 .inner{{max-width:48rem}}
@@ -234,17 +231,6 @@ h3.sec::after{{content:"";flex:1;height:1px;background:var(--rule)}}
 .item{{margin-bottom:1rem}} .item .s{{color:var(--muted);font-size:.9rem}}
 ul.plain{{margin:0;padding-left:1.1rem}}
 footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mono);display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}}
-/* command palette */
-.pal{{position:fixed;inset:0;z-index:60;background:var(--overlay);display:flex;align-items:flex-start;justify-content:center;padding:12vh max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}}
-.pal[hidden]{{display:none}}
-.pal .box{{width:min(36rem,100%);background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}}
-.pal input{{width:100%;border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);font:1rem var(--body);padding:.9rem 1rem;outline:none}}
-.pal ul{{list-style:none;margin:0;padding:.4rem;max-height:50vh;overflow:auto}}
-.pal li{{display:flex;justify-content:space-between;gap:1rem;padding:.55rem .7rem;border-radius:8px;cursor:pointer;font-size:.95rem}}
-.pal li[aria-selected="true"]{{background:var(--badge)}}
-.pal li .k{{font-family:var(--mono);font-size:.72rem;color:var(--muted);flex:none}}
-.pal li span:first-child{{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-.pal .hint{{font-family:var(--mono);font-size:.7rem;color:var(--muted);padding:.5rem 1rem;border-top:1px solid var(--rule)}}
 .toast{{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--slate);color:var(--slate-fg);font-family:var(--mono);font-size:.8rem;padding:.6rem 1rem;border-radius:8px;border:1px solid var(--accent-on-slate)}}
 .toast[hidden]{{display:none}}
 @media (max-width:860px){{.page{{grid-template-columns:1fr}}.side{{position:static;height:auto;padding-block:2.5rem;padding-left:max(16px,env(safe-area-inset-left,0px))}}.main{{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}}.two{{grid-template-columns:1fr}}}}
@@ -260,8 +246,7 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
     side = (f'<aside class="side">{TOGGLE}<img src="{img}" alt="Portrait of {NAME}"/>'
             f'<h1>Hamed<br/>Mahdavi</h1><p class="tag">{TAGLINE}</p>'
             f'<div class="status"><span class="dot"></span>Open to research scientist roles · late 2026</div>'
-            f'<p>{BIO[0]}</p>{pills}<div class="email">{EMAIL}</div>'
-            f'<button type="button" class="cmdk" data-cmdk>Search this page <kbd>⌘K</kbd></button></aside>')
+            f'<p>{BIO[0]}</p>{pills}<div class="email">{EMAIL}</div></aside>')
     def sec(id_, label, body, eyebrow=None):
         eb = eyebrow or f"// {label.lower()}"
         return f'<section id="{id_}"><div class="eyebrow">{eb}</div><h3 class="sec">{label}</h3>{body}</section>'
@@ -285,15 +270,7 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
         f'<div class="item"><strong>{t}</strong><div class="s">{d} · {n}</div></div>' for t, d, n in HONORS) + "</div></div></section>")
     m.append(sec("interests", "Interests", '<ul class="plain">' + "".join(f"<li>{i}</li>" for i in INTERESTS) + f"</ul><p>{OUTSIDE}</p>"))
     m.append(f'<footer><span>{NAME} · updated 2026-10</span><span>No framework. __KB__ KB of HTML and CSS.</span><a href="{REPO_URL}">Source on GitHub</a></footer></div></main>')
-    # palette items
-    items = [("Go to " + s, "#" + i, "section") for i, s in (("news","News"),("publications","Publications"),("experience","Experience"),("education","Education"),("honors","Honors"),("interests","Interests"))]
-    items += [(t, next(iter(l.values())), "paper") for t, a, v, y, l, _ in PUBS]
-    items += [("Download CV", CV, "file")] + [(l, u, "link") for l, u, *_ in LINKS] + [("Copy email address", "copy:" + EMAIL, "action")]
-    pal_items = "".join(f'<li data-url="{html.escape(u, quote=True)}"><span>{html.escape(t)}</span><span class="k">{k}</span></li>' for t, u, k in items)
-    palette = (f'<div class="pal" id="pal" hidden role="dialog" aria-modal="true" aria-label="Search this page"><div class="box">'
-               f'<input id="pal-q" type="text" placeholder="Jump to a section, open a paper, copy email…" autocomplete="off"/>'
-               f'<ul id="pal-list">{pal_items}</ul><div class="hint">↑↓ navigate · ↵ open · esc close</div></div></div>'
-               f'<div class="toast" id="toast" hidden></div>')
+    toast_el = '<div class="toast" id="toast" hidden></div>'
     js = THEME_JS + '''<script>
 (function(){var PIXEL_PORTRAIT="''' + PIXEL_PORTRAIT + '''";
 var toast=document.getElementById('toast'),tt;
@@ -302,22 +279,6 @@ function copy(text,done){function ok(){done&&done();say('Copied')}
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,function(){fallback()})}else{fallback()}
  function fallback(){var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){say('Select and copy manually')}document.body.removeChild(ta)}}
 document.addEventListener('click',function(e){var b=e.target.closest('.copy');if(!b)return;copy(b.getAttribute('data-copy'),function(){b.setAttribute('data-done','');b.textContent='copied';setTimeout(function(){b.removeAttribute('data-done');b.textContent=b.getAttribute('data-label')},1500)})});
-/* command palette */
-var pal=document.getElementById('pal'),q=document.getElementById('pal-q'),list=document.getElementById('pal-list'),rows=[].slice.call(list.children),sel=0;
-function open(){pal.hidden=false;q.value='';filter();q.focus()}
-function close(){pal.hidden=true}
-function visible(){return rows.filter(function(r){return !r.hidden})}
-function filter(){var v=q.value.trim().toLowerCase();rows.forEach(function(r){r.hidden=v&&r.textContent.toLowerCase().indexOf(v)<0});sel=0;paint()}
-function paint(){var vis=visible();rows.forEach(function(r){r.setAttribute('aria-selected','false')});if(vis[sel]){vis[sel].setAttribute('aria-selected','true');vis[sel].scrollIntoView({block:'nearest'})}}
-function go(r){if(!r)return;var u=r.getAttribute('data-url');close();if(u.indexOf('copy:')===0){copy(u.slice(5))}else if(u.charAt(0)==='#'){var t=document.querySelector(u);t&&t.scrollIntoView({behavior:'smooth',block:'start'})}else if(u.indexOf('http')===0){window.open(u,'_blank','noopener')||(location.href=u)}else{location.href=u}}
-document.addEventListener('keydown',function(e){
- if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();pal.hidden?open():close();return}
- if(pal.hidden)return;
- if(e.key==='Escape'){close()}else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,visible().length-1);paint()}else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);paint()}else if(e.key==='Enter'){e.preventDefault();go(visible()[sel])}});
-q.addEventListener('input',filter);
-list.addEventListener('click',function(e){var r=e.target.closest('li');r&&go(r)});
-pal.addEventListener('click',function(e){if(e.target===pal)close()});
-document.addEventListener('click',function(e){if(e.target.closest('[data-cmdk]'))open()});
 /* konami */
 var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],pos=0;
 document.addEventListener('keydown',function(e){var k=e.key.length===1?e.key.toLowerCase():e.key;pos=(k===seq[pos])?pos+1:(k===seq[0]?1:0);
@@ -325,7 +286,7 @@ document.addEventListener('keydown',function(e){var k=e.key.length===1?e.key.toL
   if(on){im.setAttribute('data-src',im.src);im.src=PIXEL_PORTRAIT;say('ACHIEVEMENT UNLOCKED · phosphor mode')}else{im.src=im.getAttribute('data-src');say('back to amber.')}}});
 })();
 </script>'''
-    body = f'<div class="page">{side}{"".join(m)}</div>{palette}{js}'
+    body = f'<div class="page">{side}{"".join(m)}</div>{toast_el}{js}'
     return head, body
 
 VARIANTS = {"b": variant_b}
