@@ -143,13 +143,13 @@ with open(os.path.join(HERE, "..", "dist", "assets", "img", "profile-pixel.png")
 def variant_b(img):
     css = f'''
 /* Layout: sticky slate identity column (amber on slate, like an amber phosphor terminal) beside a graph-paper content column. */
-:root{{--paper:#f4f5f7;--ink:#1b1f26;--muted:#5b6370;--rule:#d8dce3;--grid:rgba(27,31,38,.07);--slate:#1e2430;--slate-fg:#eef0f4;--slate-muted:#9aa3b2;
---accent:#9a6a12;--accent-on-slate:#d9a441;--card:#ffffff;--badge:#e9edf3;--overlay:rgba(27,31,38,.55);
+:root{{--paper:#f6f5f1;--ink:#1a1f1e;--muted:#5f6663;--rule:#dcdad2;--grid:rgba(26,31,30,.07);--slate:#0c2529;--slate-2:#113940;--slate-fg:#f1ede4;--slate-muted:#9fb3b0;
+--accent:#9a6a12;--accent-on-slate:#e2a93b;--card:#fffefb;--badge:#ebe9e2;--overlay:rgba(12,37,41,.6);
 --display:"Fraunces",Georgia,serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}}
-@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--paper:#15181d;--ink:#e8eaee;--muted:#9aa3b2;--rule:#2a303a;--grid:rgba(232,234,238,.05);--slate:#0f1217;--card:#1c2128;--badge:#262c36;--accent:#d9a441;--overlay:rgba(0,0,0,.6);color-scheme:dark}}}}
-:root[data-theme="dark"]{{--paper:#15181d;--ink:#e8eaee;--muted:#9aa3b2;--rule:#2a303a;--grid:rgba(232,234,238,.05);--slate:#0f1217;--card:#1c2128;--badge:#262c36;--accent:#d9a441;--overlay:rgba(0,0,0,.6);color-scheme:dark}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--paper:#121717;--ink:#e8e9e4;--muted:#98a3a0;--rule:#2a3334;--grid:rgba(232,233,228,.05);--slate:#071618;--slate-2:#0c2529;--card:#1a2122;--badge:#242d2e;--accent:#e2a93b;--overlay:rgba(0,0,0,.65);color-scheme:dark}}}}
+:root[data-theme="dark"]{{--paper:#121717;--ink:#e8e9e4;--muted:#98a3a0;--rule:#2a3334;--grid:rgba(232,233,228,.05);--slate:#071618;--slate-2:#0c2529;--card:#1a2122;--badge:#242d2e;--accent:#e2a93b;--overlay:rgba(0,0,0,.65);color-scheme:dark}}
 /* Konami: green phosphor mode, wins over both themes */
-:root.phosphor,:root.phosphor[data-theme]{{--paper:#050c06;--ink:#9dff9d;--muted:#5fbf5f;--rule:#1d3a1d;--grid:rgba(157,255,157,.08);--slate:#020602;--slate-fg:#9dff9d;--slate-muted:#5fbf5f;--accent:#9dff9d;--accent-on-slate:#9dff9d;--card:#0a1a0a;--badge:#143014;--overlay:rgba(0,20,0,.7);color-scheme:dark}}
+:root.phosphor,:root.phosphor[data-theme]{{--slate-2:#041004;--paper:#050c06;--ink:#9dff9d;--muted:#5fbf5f;--rule:#1d3a1d;--grid:rgba(157,255,157,.08);--slate:#020602;--slate-fg:#9dff9d;--slate-muted:#5fbf5f;--accent:#9dff9d;--accent-on-slate:#9dff9d;--card:#0a1a0a;--badge:#143014;--overlay:rgba(0,20,0,.7);color-scheme:dark}}
 :root.phosphor body{{text-shadow:0 0 .6px currentColor}}
 :root.phosphor body::after{{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.55) 100%)}}
 :root.phosphor .side img{{filter:grayscale(1) sepia(1) hue-rotate(70deg) saturate(3) contrast(1.1)}}
@@ -158,7 +158,7 @@ body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
 a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline}}
 a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
 .page{{display:grid;grid-template-columns:minmax(300px,360px) 1fr;min-height:100vh}}
-.side{{background:var(--slate);color:var(--slate-fg);position:sticky;top:0;height:100vh;overflow:auto;{GUTTER}padding-block:3rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px))}}
+.side{{background:linear-gradient(180deg,var(--slate),var(--slate-2));box-shadow:inset -1px 0 0 color-mix(in srgb,var(--accent-on-slate) 35%,transparent);color:var(--slate-fg);position:sticky;top:0;height:100vh;overflow:auto;{GUTTER}padding-block:3rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px))}}
 .side img{{width:132px;height:132px;border-radius:50%;object-fit:cover;border:3px solid var(--accent-on-slate)}}
 .side h1{{font-family:var(--display);font-weight:500;font-size:2.5rem;line-height:1.05;margin:1.4rem 0 .4rem;letter-spacing:-.01em;text-wrap:balance}}
 .side .tag{{color:var(--slate-muted);margin:0 0 1rem;font-size:1.02rem}}
@@ -167,10 +167,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(
 @keyframes pulse{{0%{{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent-on-slate) 60%,transparent)}}100%{{box-shadow:0 0 0 .6rem transparent}}}}
 .side p{{font-size:.97rem;color:var(--slate-fg);opacity:.9}}
 .side a{{color:var(--accent-on-slate)}}
-.cvbtn{{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:1.4rem 0 .9rem;padding:.7rem .9rem;border-radius:10px;background:var(--accent-on-slate);color:var(--slate);text-decoration:none;font-weight:600}}
-.cvbtn:hover{{text-decoration:none;filter:brightness(1.07)}}
-.cvbtn .m{{font-family:var(--mono);font-size:.72rem;font-weight:500;opacity:.8}}
-.cvbtn .arr{{font-family:var(--mono);font-size:1rem}}
+.side a.cvbtn{{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;margin:1.4rem 0 .9rem;padding:.8rem 1rem;border-radius:10px;border:1.5px solid var(--accent-on-slate);color:var(--slate-fg);text-decoration:none;background:transparent;transition:background .15s,color .15s}}
+.side a.cvbtn .big{{font-family:var(--display);font-size:1.15rem;line-height:1.1}}
+.side a.cvbtn .m{{display:block;font-family:var(--mono);font-size:.7rem;color:var(--slate-muted);margin-top:.25rem}}
+.side a.cvbtn .arr{{font-family:var(--mono);font-size:1.1rem;color:var(--accent-on-slate);width:2rem;height:2rem;border-radius:6px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--accent-on-slate) 40%,transparent)}}
+.side a.cvbtn:hover,.side a.cvbtn:focus-visible{{background:var(--accent-on-slate);color:var(--slate)}}
+.side a.cvbtn:hover .m,.side a.cvbtn:hover .arr{{color:var(--slate);border-color:var(--slate)}}
 .linklist{{display:grid;gap:.25rem;margin:0 0 1.2rem}}
 .linklist a{{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--slate-fg);text-decoration:none;border:1px solid transparent}}
 .linklist a:hover,.linklist a:focus-visible{{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04)}}
@@ -180,8 +182,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(
 .linklist .lbl small{{display:block;font-family:var(--mono);font-size:.7rem;color:var(--slate-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .linklist .arr{{font-family:var(--mono);color:var(--slate-muted);opacity:0;transform:translateX(-4px);transition:opacity .15s,transform .15s}}
 .linklist a:hover .arr{{opacity:1;transform:none;color:var(--accent-on-slate)}}
-.hon{{display:grid;grid-template-columns:24px 1fr;gap:.75rem;align-items:start}}
-.hon .pix{{margin-top:.2rem}}
 /* phosphor goes 8-bit */
 :root.phosphor .side h1,:root.phosphor .hero h2,:root.phosphor h3.sec,:root.phosphor .card .t,:root.phosphor .job .r,:root.phosphor .toast{{font-family:"Silkscreen",var(--mono);letter-spacing:0}}
 :root.phosphor .side h1{{font-size:1.5rem;line-height:1.4}} :root.phosphor .hero h2{{font-size:1.25rem;line-height:1.6}} :root.phosphor h3.sec{{font-size:1rem}} :root.phosphor .card .t,:root.phosphor .job .r{{font-size:.8rem;line-height:1.7}}
@@ -189,7 +189,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{{outline:2px solid var(
 :root.phosphor .side img{{image-rendering:pixelated;border-radius:0;filter:none}}
 :root.phosphor .status .dot{{border-radius:0;animation:blink 1s steps(1,end) infinite;box-shadow:none}}
 @keyframes blink{{50%{{opacity:0}}}}
-:root.phosphor .card,:root.phosphor .pal .box,:root.phosphor .cvbtn,:root.phosphor .linklist .mark,:root.phosphor .badge,:root.phosphor .plinks a,:root.phosphor .copy{{border-radius:0}}
+:root.phosphor .card,:root.phosphor .pal .box,:root.phosphor .side a.cvbtn,:root.phosphor .side a.cvbtn .arr,:root.phosphor .linklist .mark,:root.phosphor .badge,:root.phosphor .plinks a,:root.phosphor .copy{{border-radius:0}}
 :root.phosphor .card{{box-shadow:4px 4px 0 var(--rule)}}
 :root.phosphor .toast{{border-radius:0;font-size:.7rem;box-shadow:4px 4px 0 var(--accent-on-slate)}}
 .cmdk{{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;background:none;border:1px solid rgba(255,255,255,.18);color:var(--slate-muted);border-radius:8px;padding:.4rem .7rem;font-family:var(--mono);font-size:.78rem;cursor:pointer}}
@@ -254,7 +254,7 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
 {meta(DESC)}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Figtree:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Silkscreen&display=swap"/>
 <style>{css}</style>'''
-    pills = (f'<a class="cvbtn" href="{CV}"><span>Download CV <span class="m">· PDF, 2 pages</span></span><span class="arr">↓</span></a><nav class="linklist" aria-label="Profiles">' +
+    pills = (f'<a class="cvbtn" href="{CV}"><span><span class="big">Curriculum vitae</span><span class="m">PDF · 2 pages · updated Oct 2026</span></span><span class="arr">↓</span></a><nav class="linklist" aria-label="Profiles">' +
              "".join(f'<a href="{u}"><span class="mark">{mk}</span><span class="lbl">{l}<small>{sub}</small></span><span class="arr">→</span></a>' for l, u, mk, sub in LINKS) + "</nav>")
     side = (f'<aside class="side">{TOGGLE}<img src="{img}" alt="Portrait of {NAME}"/>'
             f'<h1>Hamed<br/>Mahdavi</h1><p class="tag">{TAGLINE}</p>'
@@ -281,7 +281,7 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
     m.append('<section id="education"><div class="two"><div><div class="eyebrow">// education</div><h3 class="sec">Education</h3>' + "".join(
         f'<div class="item"><strong>{t}</strong><div class="s">{o} · {d}</div><div class="s">{n}</div></div>' for t, o, d, n in EDUCATION) +
         '</div><div id="honors"><div class="eyebrow">// honors</div><h3 class="sec">Honors</h3>' + "".join(
-        f'<div class="item hon">{pix(ic)}<div><strong>{t}</strong><div class="s">{d} · {n}</div></div></div>' for (t, d, n), ic in zip(HONORS, ("coins", "trophy", "star", "medal"))) + "</div></div></section>")
+        f'<div class="item"><strong>{t}</strong><div class="s">{d} · {n}</div></div>' for t, d, n in HONORS) + "</div></div></section>")
     m.append(sec("interests", "Interests", '<ul class="plain">' + "".join(f"<li>{i}</li>" for i in INTERESTS) + f"</ul><p>{OUTSIDE}</p>"))
     m.append(f'<footer><span>{NAME} · updated 2026-10</span><span>No framework. __KB__ KB of HTML and CSS.</span><a href="{REPO_URL}">Source on GitHub</a></footer></div></main>')
     # palette items
