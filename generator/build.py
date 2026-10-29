@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Render the Direction B prototype from content.py.
+"""Render the site (index.html at the repo root) from content.py.
 
-  python3 build.py            -> writes b.html next to this file
+  python3 build.py            -> writes ../index.html
   python3 build.py --fragment DIR OUT  -> writes an artifact fragment (no doctype/html/head/body,
                                           profile photo inlined) for preview publishing
 """
@@ -9,7 +9,7 @@ import base64, html, os, sys
 from content import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMG_REL = "../dist/assets/img/profile.jpg"
+IMG_REL = "dist/assets/img/profile.jpg"
 SITE = "https://hamedmahdavi72.github.io/"
 
 def me(authors):
@@ -294,7 +294,7 @@ document.addEventListener('keydown',function(e){var k=e.key.length===1?e.key.toL
 VARIANTS = {"b": variant_b}
 
 def full_doc(head, body):
-    return f'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8"/>\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>\n<link rel="icon" href="../dist/assets/img/favicon.ico"/>\n{head}\n</head>\n<body>\n{body}\n</body>\n</html>\n'
+    return f'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8"/>\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>\n<link rel="icon" href="dist/assets/img/favicon.ico"/>\n{head}\n</head>\n<body>\n{body}\n</body>\n</html>\n'
 
 TITLES = {"b": "Direction B Editorial"}
 
@@ -315,4 +315,4 @@ if __name__ == "__main__":
         for k, fn in VARIANTS.items():
             head, body = fn(IMG_REL)
             doc = full_doc(head, body); doc = doc.replace("__KB__", str(round(len(doc.encode()) / 1024)))
-            p = os.path.join(HERE, f"{k}.html"); open(p, "w").write(doc); print(p)
+            p = os.path.join(HERE, "..", "index.html"); open(p, "w").write(doc); print(os.path.normpath(p))
