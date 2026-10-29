@@ -235,7 +235,18 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
 .toast{{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--slate);color:var(--slate-fg);font-family:var(--mono);font-size:.8rem;padding:.6rem 1rem;border-radius:8px;border:1px solid var(--accent-on-slate)}}
 .toast[hidden]{{display:none}}
 @media (max-height:720px) and (min-width:861px){{.side{{position:static;height:auto;min-height:100vh}}}}
-@media (max-width:860px){{.page{{grid-template-columns:1fr}}.side{{position:static;height:auto;padding-block:2.5rem;padding-left:max(16px,env(safe-area-inset-left,0px))}}.main{{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}}.two{{grid-template-columns:1fr}}}}
+@media (max-width:860px){{.page{{grid-template-columns:1fr}}
+.side{{position:static;height:auto;display:grid;grid-template-columns:auto 1fr;grid-auto-rows:auto;column-gap:1rem;align-items:center;padding-block:1.5rem 1.6rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.side img{{width:72px;height:72px;grid-row:1/3;grid-column:1;align-self:center}}
+.side h1{{grid-column:2;font-size:1.75rem;margin:0;align-self:end;padding-right:2.6rem}}
+.side .tag{{grid-column:2;margin:.15rem 0 0;font-size:.9rem;align-self:start}}
+.side .status,.side .cvbtn,.side .linklist,.side .email{{grid-column:1/-1}}
+.side .status{{margin:1.1rem 0 .2rem;justify-self:start}}
+.side a.cvbtn{{margin:.9rem 0 .7rem}}
+.linklist{{grid-template-columns:1fr 1fr;gap:.2rem .5rem;margin-bottom:.8rem}}
+.linklist a{{padding:.3rem .4rem}} .linklist .arr{{display:none}}
+.main{{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}}.two{{grid-template-columns:1fr}}}}
+@media (max-width:480px){{.status{{font-size:.7rem;padding:.3rem .65rem .3rem .5rem}}.linklist .lbl small{{display:none}}.side .tag{{font-size:.85rem}}}}
 @media (max-width:560px){{.job{{grid-template-columns:1fr}}.job .d{{grid-row:auto;grid-column:1;white-space:normal}}.news{{grid-template-columns:1fr}}}}
 @media (prefers-reduced-motion:reduce){{*{{animation:none!important;transition:none!important}}}}
 '''
