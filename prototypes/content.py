@@ -18,7 +18,7 @@ BIO = [
     "Prof. Vasant Honavar, graduating in November 2026. My research is on reasoning in large language models. "
     "I build agentic workflows and evaluation harnesses that find where models fail, generate targeted synthetic "
     "data to fix those failures, and feed it back through SFT, RL, and pretraining.",
-    "Most recently I was a Research Scientist Intern at <a href=\"https://preludelabs.ai\">Prelude</a> in New York, "
+    "Most recently I was a Research Scientist Intern at a stealth AI startup in New York, "
     "training reward models for creative judgment. Before that I collaborated with Google's Gemini Data team on the "
     "<a href=\"https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/\">Gemini IMO 2025</a> "
     "project, and my work on LLMs for mathematics is supported by an unrestricted research gift from Google.",
@@ -35,8 +35,8 @@ LOOP = [
 
 NEWS = [
     ("Oct 2026", "<em>Splicing Hints into Reasoning Traces</em> is on <a href=\"https://arxiv.org/abs/2610.13996\">arXiv</a> and under review at ICLR 2027."),
-    ("Aug 2026", "Wrapped up a six-month Research Scientist internship at Prelude in New York."),
-    ("Mar 2026", "Joined <a href=\"https://preludelabs.ai\">Prelude</a> to work on reward models for creative judgment."),
+    ("Aug 2026", "Wrapped up a six-month Research Scientist internship at a stealth AI startup in New York."),
+    ("Mar 2026", "Joined a stealth AI startup in New York to work on reward models for creative judgment."),
     ("Oct 2025", "<em>RefGrader</em> and <em>CombiGraph-Vis</em> accepted to the Math-AI Workshop at NeurIPS 2025."),
     ("Jul 2025", "Collaborated with Google's Gemini Data team on the IMO 2025 gold medal effort."),
     ("May 2025", "Received a $100k unrestricted research gift from Google."),
@@ -45,11 +45,11 @@ NEWS = [
 
 # (title, org, location, dates, bullets, link)
 EXPERIENCE = [
-    ("Research Scientist Intern", "Prelude", "New York, NY", "Mar 2026 – Aug 2026", [
+    ("Research Scientist Intern", "Stealth AI Startup", "New York, NY", "Mar 2026 – Aug 2026", [
         "Developed agentic workflows and evaluation harnesses for open-ended creative content generation, with a focus on generating synthetic reasoning data for creativity.",
         "Built pipelines that transform agentic workflows into training data, studying the interaction between mid-training and post-training for creative reasoning capabilities.",
         "Trained reasoning and non-reasoning reward models for creative judgment and led data curation for reward modeling in the creative judgment domain.",
-    ], "https://preludelabs.ai"),
+    ], None),
     ("Collaborator, Gemini IMO 2025 Project", "Google", "New York, NY", "Summer 2025", [
         "Provided high-quality verifiable data and evaluations to the Gemini Data team under the supervision of Dr. Vahab Mirrokni, resulting in a gold medal at the International Mathematical Olympiad (IMO).",
     ], "https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"),
