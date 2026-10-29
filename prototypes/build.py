@@ -158,24 +158,25 @@ body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
 a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline}}
 a:focus-visible,button:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
 .page{{display:grid;grid-template-columns:minmax(300px,360px) 1fr;min-height:100vh}}
-.side{{background:linear-gradient(180deg,var(--slate),var(--slate-2));box-shadow:inset -1px 0 0 var(--hair);color:var(--slate-fg);position:sticky;isolation:isolate;top:0;height:100vh;overflow:auto;{GUTTER}padding-block:3rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px))}}
+.side{{background:linear-gradient(180deg,var(--slate),var(--slate-2));box-shadow:inset -1px 0 0 var(--hair);color:var(--slate-fg);position:sticky;isolation:isolate;top:0;height:100vh;overflow:auto;scrollbar-width:none;{GUTTER}padding-block:2.5rem;padding-left:max(2.5rem,env(safe-area-inset-left,0px))}}
 .side::before{{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(70% 45% at 15% 0%,color-mix(in srgb,var(--accent-on-slate) 16%,transparent),transparent 70%)}}
-.side img{{width:132px;height:132px;border-radius:50%;object-fit:cover;border:2px solid var(--hair);box-shadow:0 0 0 1px var(--slate),0 8px 30px rgba(0,0,0,.45)}}
-.side h1{{font-family:var(--display);font-weight:500;font-size:2.5rem;line-height:1.05;margin:1.4rem 0 .4rem;letter-spacing:-.01em;text-wrap:balance}}
-.side .tag{{color:var(--slate-muted);margin:0 0 1rem;font-size:1.02rem}}
+.side::-webkit-scrollbar{{display:none}}
+.side img{{width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid var(--hair);box-shadow:0 0 0 1px var(--slate),0 8px 30px rgba(0,0,0,.45)}}
+.side h1{{font-family:var(--display);font-weight:500;font-size:2.3rem;line-height:1.05;margin:1.1rem 0 .35rem;letter-spacing:-.01em;text-wrap:balance}}
+.side .tag{{color:var(--slate-muted);margin:0 0 .9rem;font-size:.98rem}}
 .status{{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.78rem;color:var(--slate-fg);border:1px solid var(--hair);background:var(--tile);border-radius:999px;padding:.35rem .8rem .35rem .6rem;margin-bottom:1.2rem}}
 .status .dot{{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent-on-slate);box-shadow:0 0 0 0 var(--accent-on-slate);animation:pulse 2.2s ease-out infinite}}
 @keyframes pulse{{0%{{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent-on-slate) 60%,transparent)}}100%{{box-shadow:0 0 0 .6rem transparent}}}}
 .side p{{font-size:.97rem;color:var(--slate-fg);opacity:.9}}
 .side a{{color:var(--accent-on-slate)}}
-.side a.cvbtn{{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;margin:1.4rem 0 .9rem;padding:.8rem 1rem;border-radius:10px;border:1.5px solid var(--accent-on-slate);color:var(--slate-fg);text-decoration:none;background:transparent;transition:background .15s,color .15s}}
+.side a.cvbtn{{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;margin:1.2rem 0 .7rem;padding:.7rem .9rem;border-radius:10px;border:1.5px solid var(--accent-on-slate);color:var(--slate-fg);text-decoration:none;background:transparent;transition:background .15s,color .15s}}
 .side a.cvbtn .big{{font-family:var(--display);font-size:1.15rem;line-height:1.1}}
 .side a.cvbtn .m{{display:block;font-family:var(--mono);font-size:.7rem;color:var(--slate-muted);margin-top:.25rem}}
 .side a.cvbtn .arr{{font-family:var(--mono);font-size:1.1rem;color:var(--accent-on-slate);width:2rem;height:2rem;border-radius:6px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--accent-on-slate) 40%,transparent)}}
 .side a.cvbtn:hover,.side a.cvbtn:focus-visible{{background:var(--accent-on-slate);color:var(--slate)}}
 .side a.cvbtn:hover .m,.side a.cvbtn:hover .arr{{color:var(--slate);border-color:var(--slate)}}
-.linklist{{display:grid;gap:.25rem;margin:0 0 1.2rem}}
-.linklist a{{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:.75rem;padding:.4rem .5rem;border-radius:8px;color:var(--slate-fg);text-decoration:none;border:1px solid transparent}}
+.linklist{{display:grid;gap:.15rem;margin:0 0 1rem}}
+.linklist a{{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:.75rem;padding:.3rem .5rem;border-radius:8px;color:var(--slate-fg);text-decoration:none;border:1px solid transparent}}
 .linklist a:hover,.linklist a:focus-visible{{border-color:var(--hair);background:var(--tile)}}
 .linklist .mark{{width:2rem;height:2rem;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:.74rem;font-weight:600;background:var(--tile);color:var(--slate-fg);border:1px solid var(--hair)}}
 .linklist a:hover .mark{{background:var(--accent-on-slate);color:var(--slate);border-color:var(--accent-on-slate)}}
@@ -233,6 +234,7 @@ ul.plain{{margin:0;padding-left:1.1rem}}
 footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mono);display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}}
 .toast{{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--slate);color:var(--slate-fg);font-family:var(--mono);font-size:.8rem;padding:.6rem 1rem;border-radius:8px;border:1px solid var(--accent-on-slate)}}
 .toast[hidden]{{display:none}}
+@media (max-height:720px) and (min-width:861px){{.side{{position:static;height:auto;min-height:100vh}}}}
 @media (max-width:860px){{.page{{grid-template-columns:1fr}}.side{{position:static;height:auto;padding-block:2.5rem;padding-left:max(16px,env(safe-area-inset-left,0px))}}.main{{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}}.two{{grid-template-columns:1fr}}}}
 @media (max-width:560px){{.job{{grid-template-columns:1fr}}.job .d{{grid-row:auto;grid-column:1;white-space:normal}}.news{{grid-template-columns:1fr}}}}
 @media (prefers-reduced-motion:reduce){{*{{animation:none!important;transition:none!important}}}}
@@ -246,12 +248,12 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
     side = (f'<aside class="side">{TOGGLE}<img src="{img}" alt="Portrait of {NAME}"/>'
             f'<h1>Hamed<br/>Mahdavi</h1><p class="tag">{TAGLINE}</p>'
             f'<div class="status"><span class="dot"></span>Open to research scientist roles · late 2026</div>'
-            f'<p>{BIO[0]}</p>{pills}<div class="email">{EMAIL}</div></aside>')
+            f'{pills}<div class="email">{EMAIL}</div></aside>')
     def sec(id_, label, body, eyebrow=None):
         eb = eyebrow or f"// {label.lower()}"
         return f'<section id="{id_}"><div class="eyebrow">{eb}</div><h3 class="sec">{label}</h3>{body}</section>'
     m = ['<main class="main"><div class="inner">']
-    m.append('<div class="hero"><div class="eyebrow">// about</div><h2>Teaching language models to reason, <em>and checking the work.</em></h2>' + f"<p>{BIO[1]}</p></div>")
+    m.append('<div class="hero"><div class="eyebrow">// about</div><h2>Teaching language models to reason, <em>and checking the work.</em></h2>' + f"<p>{BIO[0]}</p><p>{BIO[1]}</p></div>")
     m.append(sec("news", "News", '<dl class="news">' + "".join(f"<dt>{d}</dt><dd>{t}</dd>" for d, t in NEWS) + "</dl>"))
     cards = []
     for i, (t, a, v, y, l, _) in enumerate(PUBS):
