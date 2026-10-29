@@ -9,7 +9,7 @@ import base64, html, os, sys
 from content import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-IMG_REL = "../dist/assets/img/profile-duotone.jpg"
+IMG_REL = "../dist/assets/img/profile.jpg"
 SITE = "https://hamedmahdavi72.github.io/"
 
 def me(authors):
@@ -342,7 +342,7 @@ def fragment(head, body, key):
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--fragment":
         key, out = sys.argv[2], sys.argv[3]
-        with open(os.path.join(HERE, "..", "dist", "assets", "img", "profile-duotone.jpg"), "rb") as f:
+        with open(os.path.join(HERE, "..", "dist", "assets", "img", "profile.jpg"), "rb") as f:
             data = "data:image/jpeg;base64," + base64.b64encode(f.read()).decode()
         h0, b0 = VARIANTS[key](IMG_REL)
         kb = str(round(len(full_doc(h0, b0).encode()) / 1024))
