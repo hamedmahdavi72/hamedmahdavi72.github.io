@@ -258,7 +258,7 @@ footer{{margin-top:4rem;color:var(--muted);font-size:.82rem;font-family:var(--mo
              "".join(f'<a href="{u}"><span class="mark">{mk}</span><span class="lbl">{l}<small>{sub}</small></span><span class="arr">→</span></a>' for l, u, mk, sub in LINKS) + "</nav>")
     side = (f'<aside class="side">{TOGGLE}<img src="{img}" alt="Portrait of {NAME}"/>'
             f'<h1>Hamed<br/>Mahdavi</h1><p class="tag">{TAGLINE}</p>'
-            f'<div class="status"><span class="dot"></span>Open to research scientist roles · late 2026</div>'
+            f'<div class="status"><span class="dot"></span>Open to research scientist roles · early 2027</div>'
             f'{pills}<div class="email">{EMAIL}</div></aside>')
     def sec(id_, label, body, eyebrow=None):
         eb = eyebrow or f"// {label.lower()}"

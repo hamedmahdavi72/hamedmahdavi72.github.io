@@ -16,7 +16,7 @@ LINKS = [
 
 BIO = [
     "I am a Ph.D. candidate in Computer Science and Engineering at Pennsylvania State University, advised by "
-    "Prof. Vasant Honavar, graduating in November 2026. My research is on reasoning in large language models. "
+    "Prof. Vasant Honavar, graduating in January 2027. My research is on reasoning in large language models. "
     "I build agentic workflows and evaluation harnesses that find where models fail, generate targeted synthetic "
     "data to fix those failures, and feed it back through SFT, RL, and pretraining.",
     "Most recently I was a Research Scientist Intern at a stealth AI startup in New York, "
@@ -100,7 +100,7 @@ PUBS = [
 ]
 
 EDUCATION = [
-    ("Ph.D. in Computer Science and Engineering", "Pennsylvania State University", "Jan 2022 – Nov 2026 (expected)",
+    ("Ph.D. in Computer Science and Engineering", "Pennsylvania State University", "Jan 2022 – Jan 2027 (expected)",
      "Advisor: Prof. Vasant Honavar · Thesis: Solving Contest-Level Math Problems Using LLMs"),
     ("M.Sc. in Artificial Intelligence", "Sharif University of Technology", "Sep 2017 – Dec 2020",
      "Advisor: Prof. Hamid Beygi · Thesis: Approximate Inference in Probabilistic Network Models"),
