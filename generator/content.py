@@ -23,7 +23,7 @@ BIO = [
     "training reward models for creative judgment. Before that I collaborated with Google's Gemini Data team on the "
     "<a href=\"https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/\">Gemini IMO 2025</a> "
     "project, and my work on LLMs for mathematics is supported by an unrestricted research gift from Google.",
-    "I am on the job market for research scientist roles starting late 2026, with a focus on LLM post-training, "
+    "I am on the job market for research scientist roles starting early 2027, with a focus on LLM post-training, "
     "reasoning, and data.",
 ]
 
@@ -54,8 +54,8 @@ EXPERIENCE = [
     ("Research Collaborator, Gemini IMO 2025 Project", "Google, in collaboration with Penn State", "Remote", "Summer 2025", [
         "Collaborated with Google's Gemini Data team, led by Dr. Vahab Mirrokni, through my university research; provided high-quality verifiable data and evaluations that contributed to a gold medal at the International Mathematical Olympiad (IMO).",
     ], "https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"),
-    ("Research Assistant", "Pennsylvania State University", "State College, PA", "Jan 2022 – Present", [
-        "Design agentic workflows for math problem solving and high-quality mathematical data generation; build and run evaluation harnesses for contest-level math (benchmarks, metrics, ablations, failure analysis).",
+    ("Research Assistant", "Pennsylvania State University", "State College, PA", "Jan 2022 – Oct 2026", [
+        "Designed agentic workflows for math problem solving and high-quality mathematical data generation; built and ran evaluation harnesses for contest-level math (benchmarks, metrics, ablations, failure analysis).",
     ], None),
     ("Data Scientist Intern", "Arconic Technology Center", "New Kensington, PA", "Jun 2023 – Aug 2023", [
         "Worked in the Fabrication Technology group under the supervision of Martin Marinack; tackled several data-driven optimization problems to improve Arconic's fabrication processes (welding, rolling, and casting).",
