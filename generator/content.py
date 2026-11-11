@@ -20,7 +20,7 @@ BIO = [
     "I build agentic workflows and evaluation harnesses that find where models fail, generate targeted synthetic "
     "data to fix those failures, and feed it back through SFT, RL, and pretraining.",
     "Most recently I was a Research Scientist Intern at a stealth AI startup in New York, "
-    "training reward models for creative judgment. Before that I collaborated with Google's Gemini Data team on the "
+    "training reward models for creative judgment. Before that I worked directly with Google's Gemini Data team on the "
     "<a href=\"https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/\">Gemini IMO 2025</a> "
     "project, and my work on LLMs for mathematics is supported by an unrestricted research gift from Google.",
     "I am on the job market for research scientist roles starting early 2027, with a focus on LLM post-training, "
@@ -39,7 +39,7 @@ NEWS = [
     ("Aug 2026", "Wrapped up a six-month Research Scientist internship at a stealth AI startup in New York."),
     ("Mar 2026", "Joined a stealth AI startup in New York to work on reward models for creative judgment."),
     ("Oct 2025", "<em>RefGrader</em> and <em>CombiGraph-Vis</em> accepted to the Math-AI Workshop at NeurIPS 2025."),
-    ("Jul 2025", "Collaborated with Google's Gemini Data team, through my Penn State research, on the IMO 2025 gold medal effort."),
+    ("Jul 2025", "Worked with Google's Gemini Data team as an external research collaborator on the IMO 2025 gold medal effort."),
     ("May 2025", "Secured a $100K unrestricted research gift from Google for my research on LLM mathematical reasoning."),
     ("Apr 2025", "<em>Brains vs. Bytes</em> accepted to COLM 2025."),
 ]
@@ -51,8 +51,8 @@ EXPERIENCE = [
         "Built pipelines that transform agentic workflows into training data, studying the interaction between mid-training and post-training for creative reasoning capabilities.",
         "Trained reasoning and non-reasoning reward models for creative judgment and led data curation for reward modeling in the creative judgment domain.",
     ], None),
-    ("Research Collaborator, Gemini IMO 2025 Project", "Google, in collaboration with Penn State", "Remote", "Summer 2025", [
-        "Collaborated with Google's Gemini Data team, led by Dr. Vahab Mirrokni, through my university research; provided high-quality verifiable data and evaluations that contributed to a gold medal at the International Mathematical Olympiad (IMO).",
+    ("Research Collaborator, Gemini IMO 2025 Project", "Google Gemini Data team", "Remote", "Summer 2025", [
+        "Worked directly with Google's Gemini Data team, led by Dr. Vahab Mirrokni, as an external research collaborator; designed and delivered high-quality verifiable data and evaluations that contributed to a gold medal at the International Mathematical Olympiad (IMO).",
     ], "https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"),
     ("Research Assistant", "Pennsylvania State University", "State College, PA", "Jan 2022 – Oct 2026", [
         "Designed agentic workflows for math problem solving and high-quality mathematical data generation; built and ran evaluation harnesses for contest-level math (benchmarks, metrics, ablations, failure analysis).",
