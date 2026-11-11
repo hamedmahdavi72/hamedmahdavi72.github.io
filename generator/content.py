@@ -39,7 +39,7 @@ NEWS = [
     ("Aug 2026", "Wrapped up a six-month Research Scientist internship at a stealth AI startup in New York."),
     ("Mar 2026", "Joined a stealth AI startup in New York to work on reward models for creative judgment."),
     ("Oct 2025", "<em>RefGrader</em> and <em>CombiGraph-Vis</em> accepted to the Math-AI Workshop at NeurIPS 2025."),
-    ("Jul 2025", "Worked with Google's Gemini Data team as an external research collaborator on the IMO 2025 gold medal effort."),
+    ("Jul 2025", "Worked with Google's Gemini Data team as an external research collaborator on Gemini's IMO 2025 gold-medal-level run."),
     ("May 2025", "Secured a $100K unrestricted research gift from Google for my research on LLM mathematical reasoning."),
     ("Apr 2025", "<em>Brains vs. Bytes</em> accepted to COLM 2025."),
 ]
@@ -52,7 +52,7 @@ EXPERIENCE = [
         "Trained reasoning and non-reasoning reward models for creative judgment and led data curation for reward modeling in the creative judgment domain.",
     ], None),
     ("Research Collaborator, Gemini IMO 2025 Project", "Google Gemini Data team", "Remote", "Summer 2025", [
-        "Worked directly with Google's Gemini Data team, led by Dr. Vahab Mirrokni, as an external research collaborator; designed and delivered high-quality verifiable data and evaluations that contributed to a gold medal at the International Mathematical Olympiad (IMO).",
+        "Worked directly with Google's Gemini Data team, led by Dr. Vahab Mirrokni, as an external research collaborator; designed and delivered high-quality verifiable data and evaluations that contributed to Gemini's gold-medal-level performance at the International Mathematical Olympiad (IMO).",
     ], "https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"),
     ("Research Assistant", "Pennsylvania State University", "State College, PA", "Jan 2022 – Oct 2026", [
         "Designed agentic workflows for math problem solving and high-quality mathematical data generation; built and ran evaluation harnesses for contest-level math (benchmarks, metrics, ablations, failure analysis).",
