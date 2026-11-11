@@ -48,7 +48,7 @@ NEWS = [
 EXPERIENCE = [
     ("Research Scientist Intern", "Stealth AI Startup", "New York, NY", "Mar 2026 – Aug 2026", [
         "Developed agentic workflows and evaluation harnesses for open-ended creative content generation, with a focus on generating synthetic reasoning data for creativity.",
-        "Built pipelines that transform agentic workflows into training data, studying the interaction between mid-training and post-training for creative reasoning capabilities.",
+        "Built pipelines that transform outputs from agentic workflows into training data, studying the interaction between mid-training and post-training for creative reasoning capabilities.",
         "Trained reasoning and non-reasoning reward models for creative judgment and led data curation for reward modeling in the creative judgment domain.",
     ], None),
     ("Research Collaborator, Gemini IMO 2025 Project", "Google Gemini Data team", "Remote", "Summer 2025", [
